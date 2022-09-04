@@ -83,6 +83,10 @@ dnl include support for wasmtime (EXPERIMENTAL)
 AC_ARG_WITH([wasmtime], AS_HELP_STRING([--with-wasmtime], [build with wasmtime support]))
 AS_IF([test "x$with_wasmtime" = "xyes"], AC_CHECK_HEADERS([wasmtime.h], AC_DEFINE([HAVE_WASMTIME], 1, [Define if wasmtime is available]), [AC_MSG_ERROR([*** Missing wasmtime headers])]))
 
+dnl include support for wasm using nodejs (EXPERIMENTAL)
+AC_ARG_WITH([wasm_nodejs], AS_HELP_STRING([--with-wasm_nodejs], [build with wasm support using nodejs support]))
+AS_IF([test "x$with_wasm_nodejs" = "xyes"], AC_CHECK_HEADERS([js_native_api.h js_native_api_types.h node_api.h node_api_types.h], AC_DEFINE([HAVE_WASM_NODEJS], 1, [Define if wasm_nodejs is available]), [AC_MSG_ERROR([*** Missing nodejs headers])]))
+
 dnl include support for wasmedge (EXPERIMENTAL)
 AC_ARG_WITH([wasmedge], AS_HELP_STRING([--with-wasmedge], [build with WasmEdge support]))
 AS_IF([test "x$with_wasmedge" = "xyes"], AC_CHECK_HEADERS([wasmedge/wasmedge.h], AC_DEFINE([HAVE_WASMEDGE], 1, [Define if WasmEdge is available]), [AC_MSG_ERROR([*** Missing wasmedge headers])]))

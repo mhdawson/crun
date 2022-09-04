@@ -39,6 +39,9 @@ extern struct custom_handler_s handler_libkrun;
 #if HAVE_DLOPEN && HAVE_WASMTIME
 extern struct custom_handler_s handler_wasmtime;
 #endif
+#if HAVE_DLOPEN && HAVE_WASM_NODEJS
+extern struct custom_handler_s handler_wasm_nodejs;
+#endif
 #if HAVE_DLOPEN && HAVE_WASMEDGE
 extern struct custom_handler_s handler_wasmedge;
 #endif
@@ -61,6 +64,9 @@ static struct custom_handler_s *static_handlers[] = {
 #endif
 #if HAVE_DLOPEN && HAVE_WASMTIME
   &handler_wasmtime,
+#endif
+#if HAVE_DLOPEN && HAVE_WASM_NODEJS
+  &handler_wasm_nodejs,
 #endif
 #if HAVE_DLOPEN && HAVE_MONO
   &handler_mono,
